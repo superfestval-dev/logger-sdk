@@ -1,5 +1,5 @@
 {
-  "name": "@festval/logger-sdk",
+  "name": "festval-logger-sdk",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
