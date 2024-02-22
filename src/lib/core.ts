@@ -13,9 +13,9 @@ export interface LoggerOptions {
 }
 
 export class Logger {
-  private db?: string = "logger";
+  private db?: string;
 
-  private host?: string = "localhost";
+  private host?: string;
 
   private port?: number = 27017;
 
@@ -25,10 +25,10 @@ export class Logger {
 
   constructor(options?: LoggerOptions) {
     if (options) {
-      this.db = options.db;
-      this.host = options.host;
-      this.port = options.port;
-      this.password = options.password;
+      this.db = options.db ? options.db : "logger";
+      this.host = options.host ? options.host : "localhost";
+      this.port = options.port ? options.port : 27017;
+      this.password = options.password ? options.password : undefined;
     }
   }
 
