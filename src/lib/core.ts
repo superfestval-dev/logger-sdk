@@ -5,11 +5,11 @@ import { LogModel } from "./../database/models/Log";
 import { Log } from "../database/entities/Log";
 
 export interface LoggerOptions {
-  db: string;
-  host: string;
-  port: number;
-  user: string;
-  password: string;
+  db?: string;
+  host?: string;
+  port?: number;
+  user?: string;
+  password?: string;
 }
 
 export class Logger {
@@ -39,10 +39,6 @@ export class Logger {
   }
 
   private async mountURI(): Promise<string> {
-    const url = `mongodb://${
-      this.user && this.port ? this.user + ":" + this.port + "@" : ""
-    }:${this.host}:${this.port}`;
-
     if (!this.user || !this.password) {
       return `mongodb://${this.host}:${this.port}/${this.db}`;
     }
